@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated article and archived software release."
+title: "Reproducibility code for early multibiomarker machine-learning prediction in critically ill HF+AF"
+type: software
+version: 1.0.0
+date-released: 2026-10-15
+authors:
+  - family-names: Alioglu
+    given-names: Cevahir
+    orcid: "https://orcid.org/0009-0001-2693-6486"
+  - family-names: Kahraman Ay
+    given-names: Nuray
+    orcid: "https://orcid.org/0000-0003-3355-0925"
+  - family-names: Isleyen
+    given-names: Hasan
+    orcid: "https://orcid.org/0000-0002-4400-9715"
+keywords:
+  - heart failure
+  - atrial fibrillation
+  - machine learning
+  - MIMIC-IV
+  - eICU
+  - external validation
+  - lactate
+  - blood urea nitrogen

@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+outputs/*
+!outputs/.gitkeep
+data/restricted/*
+!data/restricted/README.md
+.env
+.ipynb_checkpoints/

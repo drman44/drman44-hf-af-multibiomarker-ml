@@ -1,0 +1,27 @@
+{
+  "model_name": "Locked_XGBoost_Classifier",
+  "selection_rule": "Lowest pooled repeated out-of-fold log loss in MIMIC-IV (5-fold stratified outer CV x 3 repeats = 15 outer folds), with AUC as prespecified tie-breaker",
+  "hyperparameters": {
+    "n_estimators": 180,
+    "max_depth": 3,
+    "learning_rate": 0.035,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 3.0,
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "scale_pos_weight": null
+  },
+  "preprocessing": {
+    "continuous_imputation": "MIMIC-IV training-derived median",
+    "categorical_imputation": "MIMIC-IV training-derived mode (most frequent category)",
+    "categorical_encoding": "One-hot encoding locked to MIMIC-IV levels",
+    "synthetic_oversampling": false,
+    "external_recalibration": false,
+    "external_refitting": false
+  },
+  "dimensionality": {
+    "raw_predictors": 35,
+    "post_encoding_columns": 43
+  }
+}

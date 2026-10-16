@@ -1,0 +1,8 @@
+model,raw_predictor_count,post_encoding_input_columns,external_events_per_raw_predictor_descriptive,external_events_per_encoded_column_descriptive
+Clinical base,21,29,5.9523809523809526,4.310344827586207
+Clinical + LHR,22,30,5.681818181818182,4.166666666666667
+Clinical + BHR,22,30,5.681818181818182,4.166666666666667
+Clinical + LHR + BHR,23,31,5.434782608695652,4.032258064516129
+Clinical + raw components,24,32,5.208333333333333,3.90625
+Clinical + all early labs,33,41,3.787878787878788,3.048780487804878
+Locked XGBoost,35,43,3.5714285714285716,2.9069767441860463

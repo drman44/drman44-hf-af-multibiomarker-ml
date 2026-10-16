@@ -4,7 +4,7 @@
 **Affiliation:** Department of Cardiology, Bezmialem Vakif University Faculty of Medicine, Istanbul, Turkey  
 **Corresponding author:** Hasan Isleyen, MD (`hasanburak.isleyen@nisantasi.edu.tr`)
 
-This is the **full reproducibility release (v1.1.0)** for the Scientific Reports revision. It contains executable analysis code, locked model configuration, data-schema documentation, software provenance, tests, and non-patient-level reference outputs. Restricted MIMIC-IV/eICU row-level data and patient-level predictions are not redistributed.
+This is the **full reproducibility release (v1.1.1)** for the Scientific Reports revision. It contains executable analysis code, locked model configuration, data-schema documentation, software provenance, tests, and non-patient-level reference outputs. Restricted MIMIC-IV/eICU row-level data and patient-level predictions are not redistributed.
 
 ## Study design
 
@@ -113,7 +113,7 @@ See `docs/VALIDATION_REPORT.md`. The public pipeline was rerun against the autho
 
 ## Zenodo archive
 
-After pushing this full repository to GitHub, create a GitHub release/tag (recommended `v1.1.0`) and let the Zenodo GitHub integration archive that release. Use the **new version DOI generated for this full-code release** in the manuscript and response letter.
+After pushing this full repository to GitHub, create the GitHub release/tag `v1.1.1` and let the Zenodo GitHub integration archive that release. Use the **new version DOI generated for this full-code release** in the manuscript and response letter. Do not reuse an earlier partial archive DOI.
 
 The earlier partial archive should not be used as the code citation for the revised manuscript.
 

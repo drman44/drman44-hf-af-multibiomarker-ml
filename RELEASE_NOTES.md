@@ -1,15 +1,12 @@
-# v1.0.0
+# v1.1.1 Full Reproducibility Release
 
-Reproducibility release accompanying the Scientific Reports major revision.
+Reproducibility release accompanying the Scientific Reports revision.
 
 Includes:
-- exact complete-biomarker cohort harmonization;
-- locked external XGBoost and logistic comparator reproduction;
-- reviewer-requested external calibration/model-dimensionality/missingness analyses;
-- stage-specific software/version provenance;
-- non-patient-level canonical reference outputs.
+- executable analysis scripts;
+- public `docs/`, `config/`, `src/`, `tests/`, and `reference_outputs/` directories;
+- locked model configuration, input schema, software provenance, and validation report;
+- non-patient-level canonical reference outputs;
+- synchronized README, citation metadata, release file list, and checksums.
 
-Does not include:
-- credentialed MIMIC-IV/eICU row-level data;
-- patient-level prediction files;
-- every discarded historical RF/decision-tree inner-grid candidate that was not retained in the surviving execution artifacts.
+This release does not include restricted MIMIC-IV/eICU row-level data, patient-level prediction files, credentials, tokens, secrets, caches, or generated local outputs.

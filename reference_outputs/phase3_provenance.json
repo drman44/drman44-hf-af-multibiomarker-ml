@@ -1,0 +1,26 @@
+{
+  "development": "MIMIC-IV complete-biomarker locked cohort",
+  "external": "eICU-CRD complete-biomarker locked cohort",
+  "development_N": 3925,
+  "development_deaths": 760,
+  "external_N": 403,
+  "external_deaths": 125,
+  "locked_algorithm": "XGBoost",
+  "locked_hyperparameters": {
+    "colsample_bytree": 0.9,
+    "learning_rate": 0.035,
+    "max_depth": 3,
+    "n_estimators": 180,
+    "reg_lambda": 3.0,
+    "subsample": 0.9
+  },
+  "external_retuning": false,
+  "external_feature_selection": false,
+  "external_recalibration_primary": false,
+  "bootstrap_primary": 2000,
+  "DCA_threshold_range": "0.10-0.50 in increments of 0.02",
+  "python": "3.13.5",
+  "scikit_learn": "1.8.0",
+  "xgboost": "3.1.3",
+  "seed": 42
+}

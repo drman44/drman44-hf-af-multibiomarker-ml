@@ -1,0 +1,3 @@
+imputation_strategy,external_AUC,external_Brier,external_LogLoss,delta_AUC_vs_primary,delta_AUC_CI_low,delta_AUC_CI_high
+Training-derived median/mode (primary locked pipeline),0.6716258992805756,0.20604471087374063,0.6103711218818174,,,
+20-draw outcome-blind PMM-MICE sensitivity,0.6724604316546762,0.2053087274400681,0.6085805791562762,0.0008345323741005828,-0.002510870069094548,0.004171543954148059

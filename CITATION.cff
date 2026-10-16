@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "Early Multibiomarker Machine-Learning Prediction of In-Hospital Mortality in Critically Ill Patients With Heart Failure and Atrial Fibrillation"
 message: "If you use these reproducibility materials, please cite the associated manuscript and the Zenodo DOI minted from the full-code release."
 type: software
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-10-16
 authors:
   - family-names: Alioglu

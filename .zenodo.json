@@ -20,6 +20,6 @@
   ],
   "access_right": "open",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Full reproducibility release containing executable analysis scripts, locked model configuration, software provenance, input schema, tests, and non-patient-level reference outputs. Restricted MIMIC-IV/eICU patient-level data are not redistributed."
 }

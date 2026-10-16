@@ -1,0 +1,11 @@
+{
+  "model": "XGBoost",
+  "locked_params": {
+    "model__colsample_bytree": 0.9,
+    "model__learning_rate": 0.035,
+    "model__max_depth": 3,
+    "model__n_estimators": 180,
+    "model__reg_lambda": 3.0,
+    "model__subsample": 0.9
+  }
+}

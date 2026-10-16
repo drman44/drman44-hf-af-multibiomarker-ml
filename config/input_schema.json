@@ -1,0 +1,198 @@
+{
+  "time_window": "0 to 6 hours after ICU admission (fixed 6-hour landmark)",
+  "exclusion_rule": "Death or hospital discharge at or before 6 hours from ICU admission",
+  "primary_outcome": "all_cause_post_landmark_inhospital_mortality",
+  "clinical_block_raw_predictors_21": [
+    {
+      "name": "age",
+      "type": "continuous",
+      "unit": "years"
+    },
+    {
+      "name": "sex",
+      "type": "categorical",
+      "levels": [
+        "Female",
+        "Male"
+      ]
+    },
+    {
+      "name": "race",
+      "type": "categorical",
+      "levels": [
+        "Asian",
+        "Black",
+        "Hispanic",
+        "Other/Unknown",
+        "White"
+      ]
+    },
+    {
+      "name": "unit_type",
+      "type": "categorical",
+      "levels": [
+        "Cardiac",
+        "Medical",
+        "Neuro",
+        "Surgical/Trauma"
+      ]
+    },
+    {
+      "name": "weight",
+      "type": "continuous",
+      "unit": "kg"
+    },
+    {
+      "name": "sbp",
+      "type": "continuous",
+      "unit": "mmHg"
+    },
+    {
+      "name": "dbp",
+      "type": "continuous",
+      "unit": "mmHg"
+    },
+    {
+      "name": "heart_rate",
+      "type": "continuous",
+      "unit": "beats/min"
+    },
+    {
+      "name": "resp_rate",
+      "type": "continuous",
+      "unit": "breaths/min"
+    },
+    {
+      "name": "mi",
+      "type": "binary",
+      "description": "Myocardial infarction"
+    },
+    {
+      "name": "pvd",
+      "type": "binary",
+      "description": "Peripheral vascular disease"
+    },
+    {
+      "name": "cvd",
+      "type": "binary",
+      "description": "Cerebrovascular disease"
+    },
+    {
+      "name": "copd",
+      "type": "binary",
+      "description": "Chronic pulmonary disease"
+    },
+    {
+      "name": "rheumatic",
+      "type": "binary",
+      "description": "Rheumatic disease"
+    },
+    {
+      "name": "pud",
+      "type": "binary",
+      "description": "Peptic ulcer disease"
+    },
+    {
+      "name": "diabetes",
+      "type": "binary",
+      "description": "Diabetes mellitus"
+    },
+    {
+      "name": "ckd",
+      "type": "binary",
+      "description": "Chronic kidney disease"
+    },
+    {
+      "name": "malignancy",
+      "type": "binary",
+      "description": "Malignancy"
+    },
+    {
+      "name": "severe_liver",
+      "type": "binary",
+      "description": "Severe liver disease"
+    },
+    {
+      "name": "hypertension",
+      "type": "binary",
+      "description": "Hypertension"
+    },
+    {
+      "name": "anemia",
+      "type": "binary",
+      "description": "Coded anemia"
+    }
+  ],
+  "biomarker_block_raw_predictors_14": [
+    {
+      "name": "log2_lactate",
+      "type": "continuous",
+      "formula": "log2(lactate [mmol/L])"
+    },
+    {
+      "name": "log2_bun",
+      "type": "continuous",
+      "formula": "log2(BUN [mg/dL])"
+    },
+    {
+      "name": "hemoglobin",
+      "type": "continuous",
+      "unit": "g/dL"
+    },
+    {
+      "name": "log2_lhr",
+      "type": "continuous",
+      "formula": "log2(lactate [mmol/L] / hemoglobin [g/dL])"
+    },
+    {
+      "name": "log2_bhr",
+      "type": "continuous",
+      "formula": "log2(BUN [mg/dL] / hemoglobin [g/dL])"
+    },
+    {
+      "name": "platelet",
+      "type": "continuous",
+      "unit": "10^9/L"
+    },
+    {
+      "name": "wbc",
+      "type": "continuous",
+      "unit": "10^9/L"
+    },
+    {
+      "name": "rbc",
+      "type": "continuous",
+      "unit": "10^12/L"
+    },
+    {
+      "name": "rdw",
+      "type": "continuous",
+      "unit": "%"
+    },
+    {
+      "name": "glucose",
+      "type": "continuous",
+      "unit": "mg/dL"
+    },
+    {
+      "name": "creatinine",
+      "type": "continuous",
+      "unit": "mg/dL"
+    },
+    {
+      "name": "calcium",
+      "type": "continuous",
+      "unit": "mg/dL"
+    },
+    {
+      "name": "potassium",
+      "type": "continuous",
+      "unit": "mmol/L"
+    },
+    {
+      "name": "anion_gap",
+      "type": "continuous",
+      "unit": "mmol/L"
+    }
+  ]
+}

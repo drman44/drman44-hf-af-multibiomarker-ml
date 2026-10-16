@@ -1,0 +1,2 @@
+comparison,delta_AUC_full_minus_ablation,CI_low,CI_high,delta_Brier_full_minus_ablation,Brier_CI_low,Brier_CI_high
+Full XGBoost vs Without both ratios,0.0004604316546762,-0.0121937418661234,0.0125373833206663,0.0005277544260025,-0.0021213140338659,0.0030863165855407

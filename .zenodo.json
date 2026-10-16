@@ -1,0 +1,25 @@
+{
+  "title": "Reproducibility Materials: Early Multibiomarker Machine-Learning Prediction of In-Hospital Mortality in Critically Ill Patients With Heart Failure and Atrial Fibrillation",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Alioglu, Cevahir",
+      "affiliation": "Bezmialem Vakif University Faculty of Medicine",
+      "orcid": "0009-0001-2693-6486"
+    },
+    {
+      "name": "Kahraman Ay, Nuray",
+      "affiliation": "Bezmialem Vakif University Faculty of Medicine",
+      "orcid": "0000-0003-3355-0925"
+    },
+    {
+      "name": "Isleyen, Hasan",
+      "affiliation": "Bezmialem Vakif University Faculty of Medicine",
+      "orcid": "0000-0002-4400-9715"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.1.0",
+  "description": "Full reproducibility release containing executable analysis scripts, locked model configuration, software provenance, input schema, tests, and non-patient-level reference outputs. Restricted MIMIC-IV/eICU patient-level data are not redistributed."
+}

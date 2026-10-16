@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the associated article and archived software release."
-title: "Reproducibility code for early multibiomarker machine-learning prediction in critically ill HF+AF"
+title: "Early Multibiomarker Machine-Learning Prediction of In-Hospital Mortality in Critically Ill Patients With Heart Failure and Atrial Fibrillation"
+message: "If you use these reproducibility materials, please cite the associated manuscript and the Zenodo DOI minted from the full-code release."
 type: software
-version: 1.0.0
-date-released: 2026-10-15
+version: 1.1.0
+date-released: 2026-10-16
 authors:
   - family-names: Alioglu
     given-names: Cevahir
@@ -14,12 +14,5 @@ authors:
   - family-names: Isleyen
     given-names: Hasan
     orcid: "https://orcid.org/0000-0002-4400-9715"
-keywords:
-  - heart failure
-  - atrial fibrillation
-  - machine learning
-  - MIMIC-IV
-  - eICU
-  - external validation
-  - lactate
-  - blood urea nitrogen
+repository-code: "https://github.com/drman44/drman44-hf-af-multibiomarker-ml"
+license: MIT

@@ -1,51 +1,82 @@
-# Early multibiomarker machine-learning prediction in critically ill HF+AF
+# Early Multibiomarker Machine-Learning Prediction of In-Hospital Mortality in Critically Ill Patients With Heart Failure and Atrial Fibrillation
 
-Reproducibility repository for:
+**Authors:** Cevahir Alioglu, MD; Nuray Kahraman Ay, MD; Hasan Isleyen, MD  
+**Affiliation:** Department of Cardiology, Bezmialem Vakif University Faculty of Medicine, Istanbul, Turkey  
+**Corresponding author:** Hasan Isleyen, MD (`hasanburak.isleyen@nisantasi.edu.tr`)
 
-**Early Multibiomarker Machine-Learning Prediction of In-Hospital Mortality in Critically Ill Patients With Heart Failure and Atrial Fibrillation**
+This is the **full reproducibility release (v1.1.0)** for the Scientific Reports revision. It contains executable analysis code, locked model configuration, data-schema documentation, software provenance, tests, and non-patient-level reference outputs. Restricted MIMIC-IV/eICU row-level data and patient-level predictions are not redistributed.
 
-Authors: Cevahir Alioglu, Nuray Kahraman Ay, Hasan Isleyen.
+## Study design
 
-This repository contains the analysis code, locked model configuration, data-schema documentation, and non-patient-level reference outputs used for the Scientific Reports revision. **Restricted MIMIC-IV/eICU patient-level data are not redistributed.**
+- Development: MIMIC-IV v3.1; N=3,925; 760 post-landmark in-hospital deaths.
+- External validation: eICU-CRD v2.0; N=403; 125 post-landmark in-hospital deaths.
+- Time zero: ICU admission.
+- Predictor window: 0-6 hours.
+- Landmark: 6 hours; deaths/discharges at or before the landmark excluded.
+- Outcome: all-cause in-hospital mortality after the landmark.
+- External model: selected/locked using MIMIC only, then transported unchanged to eICU.
 
-## What is reproducible here
+## Public release contents
 
-The public code covers the complete path from locally obtained analysis-ready source files to:
+```text
+scripts/
+  01_build_modeling_cohorts.py
+  02_validate_modeling_cohorts.py
+  03_internal_validation_reference.py
+  04_external_validation.py
+  05_revision_analyses.py
+  05b_biomarker_completeness.py
+  05c_imputation_sensitivity_reference.py
+  06_classical_analysis_specification.py
 
-1. the 6-hour complete-biomarker modeling cohorts;
-2. conventional biomarker/component analyses;
-3. leakage-protected model-development logic and stored fold-level tuning records;
-4. locked XGBoost and unpenalized logistic comparator refits in MIMIC-IV;
-5. unchanged external transport to eICU;
-6. external AUC, Brier score, log loss, calibration, paired bootstrap comparisons, ablations, and risk distributions;
-7. reviewer-requested missingness, imputation-sensitivity, model-dimensionality, and biomarker-completeness analyses.
+src/
+  common.py
 
-The exact locked external XGBoost predictions and comparator predictions can be regenerated from the two local model-ready cohorts. On the authors' execution environment, the regenerated locked XGBoost metrics were AUC 0.667626, Brier 0.203599, and log loss 0.597357.
+tests/
+  test_core.py
 
-## Data are intentionally not included
+docs/
+  DATA_ACCESS.md
+  INPUT_SCHEMA.md
+  PROVENANCE.md
+  VALIDATION_REPORT.md
 
-MIMIC-IV and eICU-CRD are distributed through PhysioNet under their own credentialing/data-use requirements. Do **not** commit raw or derived row-level patient data to this repository.
+config/
+  analysis_config.json
+  input_schema.json
+  locked_xgboost_config.json
+  software_provenance.json
 
-Expected local input files:
+reference_outputs/
+  non-patient-level audit/reference outputs
+```
+
+`PUBLIC_RELEASE_FILELIST.txt` is generated from the actual repository contents.
+
+## Restricted data
+
+Researchers must obtain MIMIC-IV and eICU-CRD independently through PhysioNet and comply with the applicable credentialing and data-use requirements. Do not commit restricted row-level data.
+
+Expected local files:
 
 ```text
 data/restricted/BHR_MIMIC_analysis_ready.csv
 data/restricted/BHR_eICU_analysis_ready.csv
 ```
 
-These filenames match the authors' analysis-ready exports. See `docs/DATA_ACCESS.md` and `docs/INPUT_SCHEMA.md`.
+The `data/restricted/` directory is protected by `.gitignore`.
 
-## Quick start
-
-Create the exact environment where possible:
+## Exact environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Place the two restricted input CSVs under `data/restricted/`, then run:
+The execution-time environment is also documented in `environment.yml` and `config/software_provenance.json`.
+
+## Reproduce the locked external validation
 
 ```bash
 python scripts/01_build_modeling_cohorts.py
@@ -54,47 +85,38 @@ python scripts/04_external_validation.py
 python scripts/05_revision_analyses.py
 python scripts/05b_biomarker_completeness.py
 python scripts/05c_imputation_sensitivity_reference.py
+pytest -q
 ```
 
-Optional internal-development replay/reference workflow:
+The locked external validation reproduces:
 
-```bash
-python scripts/03_internal_validation_reference.py
-```
+- XGBoost AUC 0.667626
+- Brier score 0.203599
+- log loss 0.597357
+- clinical + raw-component logistic AUC 0.671626
 
-Outputs are written to `outputs/`, which is git-ignored.
+The external validation is unchanged transport: no eICU feature selection, hyperparameter tuning, coefficient refit, cutoff optimization, or primary recalibration.
 
 ## Important provenance note
 
-The retained execution artifacts record stage-specific random seeds:
-- classical/revision/external stages: `42`;
-- Phase-1 linear-model artifact: `20260804`;
-- Phase-2 tree models and Phase-3 locked external validation: `42`.
+Stage-specific retained seeds are preserved rather than rewritten:
 
-The public code does not rewrite this provenance. See `docs/PROVENANCE.md`.
+- classical/revision/external analyses: 42;
+- Phase-1 linear-model execution record: 20260804;
+- Phase-2 tree and Phase-3 external validation: 42.
 
-The surviving Phase-2 artifacts preserve selected fold-level hyperparameters and exact locked XGBoost/LightGBM candidate configurations. They do not preserve every losing Random Forest/Decision Tree candidate from the original inner-search grid. Therefore the public internal-development script is a transparent reference/replay implementation, while the **external locked-model pipeline is exactly specified and directly validated against the retained outputs**.
+The shadow-feature procedure is Boruta-inspired but **not canonical Boruta**.
 
-## Key scientific guardrails
+## Validation
 
-- Predictor window: ICU admission through 6 hours.
-- Landmark: 6 hours.
-- Outcome: all-cause in-hospital mortality after the landmark.
-- No post-landmark predictors in the primary model.
-- MIMIC-IV used for development/model locking; eICU used only after lock.
-- No eICU feature selection, hyperparameter tuning, coefficient refitting, or primary recalibration.
-- Ratio-specific value is evaluated against the underlying lactate/BUN/hemoglobin components.
-- SHAP describes model contribution, not causal importance.
-- Decision-curve analysis is exploratory because external calibration was imperfect.
+See `docs/VALIDATION_REPORT.md`. The public pipeline was rerun against the authors' local credentialed analysis-ready files before packaging; restricted data are not included in this release.
 
-## Reference results
+## Zenodo archive
 
-Non-patient-level reference results are in `reference_outputs/`. They are provided to audit a rerun without redistributing restricted patient-level predictions.
+After pushing this full repository to GitHub, create a GitHub release/tag (recommended `v1.1.0`) and let the Zenodo GitHub integration archive that release. Use the **new version DOI generated for this full-code release** in the manuscript and response letter.
 
-## Citation
-
-See `CITATION.cff`. The Zenodo DOI should be added after the GitHub release is archived.
+The earlier partial archive should not be used as the code citation for the revised manuscript.
 
 ## License
 
-No software license is asserted in this repository package. The authors should add their preferred open-source license before making the repository public if reuse beyond inspection/reproduction is intended.
+MIT License. See `LICENSE`.
